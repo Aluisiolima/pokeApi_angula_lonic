@@ -1,7 +1,7 @@
 # pokeApi_angula_lonic
 
 ## Desafio
-```
+
 Para avaliar suas habilidades técnicas e estilo de codificação, convidamos você a desenvolver um pequeno aplicativo utilizando os serviços RESTful da API pública PokeAPI.
 
 Como participar?
