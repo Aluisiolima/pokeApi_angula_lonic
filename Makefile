@@ -1,5 +1,5 @@
 run:
-	npm run lint
+	npm run format
 	ionic serve
 
 run-build: 
@@ -12,4 +12,4 @@ run-test:
 	npm run test
 
 format:
-	npm run lint
+	npm run format
