@@ -1,0 +1,7 @@
+{
+  "name": "pokeap_angula",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
