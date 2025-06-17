@@ -9,8 +9,8 @@ describe('CardPokemonComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CardPokemonComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [CardPokemonComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(CardPokemonComponent);

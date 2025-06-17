@@ -7,18 +7,17 @@ import { Pokemons } from '../models/Pokemon';
   selector: 'app-card-pokemon',
   templateUrl: './card-pokemon.component.html',
   styleUrls: ['./card-pokemon.component.scss'],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
-export class CardPokemonComponent  implements OnInit {
+export class CardPokemonComponent implements OnInit {
   public pokemons: Pokemons[] = [];
 
-  constructor(private readonly pokemonServices: PokemonService) { }
+  constructor(private readonly pokemonServices: PokemonService) {}
 
   ngOnInit(): void {
     this.pokemonServices.getPokemons().subscribe({
-      next: (dados) => this.pokemons = dados.results,
-      error: (error) => console.error(error)
-    })
+      next: (dados) => (this.pokemons = dados.results),
+      error: (error) => console.error(error),
+    });
   }
-
 }
