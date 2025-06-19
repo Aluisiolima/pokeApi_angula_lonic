@@ -1,8 +1,15 @@
 <ion-grid>
   <ion-row *ngIf="pokemons && pokemons.length > 0">
     <ion-col size="size-md" *ngFor="let pokemon of pokemons">
-      <div class="card-container {{ pokemon.types[0].type.name }}">
-        <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" width="150" />
+      <div
+        class="card-container {{ pokemon.types[0].type.name }}"
+        [routerLink]="['/details', pokemon.name]"
+      >
+        <img
+          [src]="pokemon.sprites.other?.['official-artwork']?.front_default"
+          alt="{{ pokemon.name }}"
+          width="150"
+        />
         <h2>{{ pokemon.name }}</h2>
       </div>
     </ion-col>

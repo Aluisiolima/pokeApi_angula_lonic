@@ -19,6 +19,9 @@
   </div>
 
   <ion-infinite-scroll threshold="100px" (ionInfinite)="fetchDate($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando mais pokémons..."></ion-infinite-scroll-content>
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Carregando mais pokémons..."
+    ></ion-infinite-scroll-content>
   </ion-infinite-scroll>
 </ion-content>

@@ -1,7 +1,14 @@
 import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonInfiniteScroll, IonInfiniteScrollContent } from '@ionic/angular/standalone';
+import {
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonInfiniteScroll,
+  IonInfiniteScrollContent,
+} from '@ionic/angular/standalone';
 import { CardPokemonComponent } from '../card-pokemon/card-pokemon.component';
-import { PokemonService } from '../services/pokemon.service'; 
+import { PokemonService } from '../services/pokemon.service';
 import { finalize, forkJoin } from 'rxjs';
 import { Pokemon } from '../models/Pokemon';
 
@@ -9,7 +16,15 @@ import { Pokemon } from '../models/Pokemon';
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonInfiniteScroll, IonInfiniteScrollContent, CardPokemonComponent],
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonInfiniteScroll,
+    IonInfiniteScrollContent,
+    CardPokemonComponent,
+  ],
 })
 export class HomePage {
   public pokemons: Pokemon[] = [];
