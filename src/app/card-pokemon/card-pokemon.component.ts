@@ -1,23 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PokemonService } from '../services/pokemon.service';
-import { Pokemons } from '../models/Pokemon';
+import { Pokemon } from '../models/Pokemon';
+import { IonGrid, IonRow, IonCol } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-card-pokemon',
   templateUrl: './card-pokemon.component.html',
   styleUrls: ['./card-pokemon.component.scss'],
-  imports: [CommonModule],
+  imports: [CommonModule, IonCol, IonGrid, IonRow],
 })
 export class CardPokemonComponent implements OnInit {
-  public pokemons: Pokemons[] = [];
-
-  constructor(private readonly pokemonServices: PokemonService) {}
+  @Input() pokemons: Pokemon[] = [];
 
   ngOnInit(): void {
-    this.pokemonServices.getPokemons().subscribe({
-      next: (dados) => (this.pokemons = dados.results),
-      error: (error) => console.error(error),
-    });
+    return;
   }
 }
