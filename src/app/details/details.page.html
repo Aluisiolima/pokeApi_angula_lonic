@@ -11,6 +11,7 @@
     </ion-toolbar>
   </ion-header>
   <div *ngIf="pokemon" class="container">
+    <audio #som src="{{ pokemon.cries.latest }}"></audio>
     <div class="container_img {{ pokemon.types[0].type.name }}">
       <div class="less" [routerLink]="['/home']">
         <ion-icon name="arrow-back-outline" size="large"></ion-icon>
@@ -27,11 +28,11 @@
     <div class="container_form">
       <div>
         <p class="form_name">Height</p>
-        <p>{{ pokemon.height }} m</p>
+        <p>{{ pokemon.height / 10 }} m</p>
       </div>
       <div>
         <p class="form_name">Weight</p>
-        <p>{{ pokemon.weight }} kg</p>
+        <p>{{ pokemon.weight / 10 }} kg</p>
       </div>
     </div>
     <div class="container_stat">

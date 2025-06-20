@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonIcon } from '@ionic/angular/standalone';
 import { PokemonService } from '../services/pokemon.service';
@@ -23,12 +23,20 @@ export class DetailsPage implements OnInit {
   }
 
   public pokemon: Pokemon | null = null;
-  public readonly statsMax: number = 270;
+  public readonly statsMax: number = 200;
+
+  @ViewChild('som') somRef!: ElementRef<HTMLAudioElement>;
 
   ngOnInit(): void {
     this.router.paramMap.subscribe((params) => {
       this.pokemonServices.getPokemon(String(params.get('name'))).subscribe((res) => {
         this.pokemon = res;
+        setTimeout(() => {
+          this.somRef.nativeElement.volume = 0.5;
+          this.somRef.nativeElement.play().catch((err) => {
+            console.log('O navegador pode bloquear som automático. É necessário interação.');
+          });
+        }, 100);
       });
     });
   }

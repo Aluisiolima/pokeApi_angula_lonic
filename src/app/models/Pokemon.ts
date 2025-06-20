@@ -6,6 +6,7 @@ export interface Pokemon {
   base_experience: number;
   height: number;
   is_default: boolean;
+  cries: Cries;
   order: number;
   weight: number;
   abilities: Ability[];
@@ -94,4 +95,9 @@ export interface Stat {
 export interface Type {
   slot: number;
   type: NamedAPIResource;
+}
+
+export interface Cries {
+  latest: string;
+  legacy: string;
 }
