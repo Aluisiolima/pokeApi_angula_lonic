@@ -38,3 +38,75 @@ Diferenciais (não obrigatórios, mas que farão seu projeto se destacar):
 - Testes unitários cobrindo partes importantes do código.
 
 Fique à vontade para adicionar outras funcionalidades ou melhorias que considerar interessantes — surpreenda-nos!
+
+
+## 🛠️ Diagrama de como inicia a HomePage
+
+```mermaid
+sequenceDiagram
+    title Init HomePage
+    HomePage ->>+ Services: Requisição Para Api
+
+    Services->>Services: Em cache?
+
+    Services->>HomePage: Return Dados em Cache
+
+    Services->>+API: Requeste Pokemons
+    Note right of Services: GET /pokemon/?limit=${limit}&offset=${offset}
+   
+    API->>-Services: Return lista de Pokemons
+
+    Services->>Services: For in Lista pokemons
+
+    Services->>+API: Pegando os detalhes de cada Pokemon
+    Note right of Services: GET /pokemon/{name}
+
+    API->>-Services: Return detalhes do Pokemon
+
+    Services->>Services: Save Cache
+    
+    Services->>-HomePage: Created Interface
+```
+
+## 🛠️ Diagrama de como inicia a DatailsPage
+
+```mermaid
+sequenceDiagram
+    title Init DatailsPage
+    DatailsPage->>+Services: Requisição para o Pokemon
+
+    Services->>Services: Em cache?
+
+    Services->>DatailsPage: Return Dados em Cache
+
+    Services->>+API: Pegando os detalhes de cada Pokemon
+    Note right of Services: GET /pokemon/{name}
+
+    API->>-Services: Return detalhes do Pokemon
+
+    Services->>Services: Save Cache
+    
+    Services->>-DatailsPage: Created Interface
+```
+
+## Services:
+    PokemonServices
+[PokemonServices](/src/app/services/pokemon.service.ts)
+### Atributos: 
+- http: HttpClient
+- cache: Map<string, Pokemon>
+    
+### methods:
+- **getPokemons**:
+    
+    Receber um limit e offset e faz uma req /pokemon/?limit={limit}&offset={offset}, e retornado o resultado dessa req
+
+- **getPokemon**:
+
+    Receber o nome do pokemon e fazer uma req para /pokemon/{name}/ caso o {name} não esteja no cache, logo após set {name} no cache, caso esteja em cache retorna cache.get({name})
+
+
+## Models:
+    Pokemon
+[Pokemon](/src/app/models/Pokemon.ts)
+- Uma interface de dados para mapear e tipa o retornos do Services 

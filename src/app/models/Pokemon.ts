@@ -83,7 +83,7 @@ export interface Sprites {
       front_shiny: string | null;
     };
   };
-  versions?: any; // Pode ser detalhado, mas é extenso
+  versions?: any;
 }
 
 export interface Stat {
